@@ -30,7 +30,7 @@ def SendMail(DataOutput):
 r = requests.get('https://www.daft.ie/property-for-rent/ireland/houses?location=cork-commuter-towns-cork&location=cork-city').text
 soup = BeautifulSoup(r, 'html.parser')
 data = soup.find_all("div", class_="Card__Body-x1sjdn-3 dhiEPC")
-#links = soup.find_all("a",href=True,class_="SearchPage__Result-gg133s-2 itNYNv")
+
 MyList = []
 for datas in data:
     price = datas.find("div", class_="TitleBlock__Price-sc-1avkvav-3 pJtsY").text# get the raw price in text
@@ -38,7 +38,7 @@ for datas in data:
     both = address + "\n" + price
     MyList.append(both)
 
-    #print(f"Address:{address} Price is {price}")
+
 separator = ", "# useed for the join() method in python
 DataOutput = separator.join(MyList)#Takes the list and makes it look nicer, will use this as a payloud in the email.
 SendMail(DataOutput)
