@@ -3,7 +3,7 @@ import smtplib, ssl
 from bs4 import BeautifulSoup
 import sys
 sys.path.insert(0, '/Users/Root/Desktop/Python')
-from GmailConfig import username, password#all 3 lines used to import password hosted in another file/folger for secure handleing
+from GmailConfig import username, password, TrgetEmail,SentForm #all 3 lines used to import password hosted in another file for secure handleing of credentials.
 from datetime import date
 from email.mime.text import MIMEText
 
@@ -11,8 +11,8 @@ def SendMail(DataOutput):
     port = 465  # For SSL
     # Create a secure SSL context
     context = ssl.create_default_context()
-    sender_email = "pythonbox65@gmail.com"
-    receiver_email = "dragonkarl45@gmail.com"
+    sender_email = SentForm
+    receiver_email = TrgetEmail
     TheTime =  date.today()#pulls in the date
     #set up the msg to send
     msg = MIMEText(f'Palces to Rent report for {TheTime}')
