@@ -3,7 +3,7 @@ import smtplib, ssl
 from bs4 import BeautifulSoup
 import sys
 sys.path.insert(0, '/Users/Root/Desktop/Python')
-from GmailConfig import username, password, TrgetEmail,SentForm #all 3 lines used to import password hosted in another file for secure handleing of credentials.
+from GmailConfig import*  #all 3 lines used to import password hosted in another file for secure handleing of credentials.
 from datetime import date
 from email.mime.text import MIMEText
 
@@ -42,4 +42,4 @@ for datas in data:
 separator = ", "# useed for the join() method in python
 DataOutput = separator.join(MyList)#Takes the list and makes it look nicer, will use this as a payloud in the email.
 SendMail(DataOutput)
-print("Done")
+print("Done", DataOutput)
