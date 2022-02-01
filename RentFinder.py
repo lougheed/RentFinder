@@ -29,12 +29,12 @@ def SendMail(DataOutput):
 
 r = requests.get('https://www.daft.ie/property-for-rent/ireland/houses?location=cork-commuter-towns-cork&location=cork-city').text
 soup = BeautifulSoup(r, 'html.parser')
-data = soup.find_all("div", class_="Card__Body-x1sjdn-3 dhiEPC")
+data = soup.find_all("div", class_="Card__Content-x1sjdn-9 hqrqJL")
 
 MyList = []
 for datas in data:
-    price = datas.find("div", class_="TitleBlock__Price-sc-1avkvav-3 pJtsY").text# get the raw price in text
-    address = datas.find("p", class_="TitleBlock__Address-sc-1avkvav-7 knPImU").text#get the adresss text
+    price = datas.find("div", class_="TitleBlock__Price-sc-1avkvav-3 fTpJJZ").text# get the raw price in text
+    address = datas.find("p", class_="TitleBlock__Address-sc-1avkvav-7 hRrWbx").text#get the adresss text
     both = address + "\n" + price
     MyList.append(both)
 
